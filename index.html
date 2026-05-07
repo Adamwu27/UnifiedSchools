@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Schools | Special Olympics East Asia</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f8fafc;
+        }
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #004999 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2em; margin-bottom: 8px; }
+        .hero p { opacity: 0.9; font-size: 1.1em; }
+        .container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+        .section {
+            background: white; border-radius: 12px;
+            padding: 28px; margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .section h2 {
+            color: #0066cc; font-size: 1.3em;
+            margin-bottom: 14px; padding-bottom: 10px;
+            border-bottom: 2px solid #e8f0fa;
+        }
+        .section p { margin-bottom: 12px; }
+        .section ul { margin: 10px 0 10px 22px; }
+        .section li { margin-bottom: 8px; }
+        .stats {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 16px; margin: 20px 0;
+        }
+        .stat-box {
+            background: linear-gradient(135deg, #0066cc, #004999);
+            color: white; padding: 20px; border-radius: 10px;
+            text-align: center;
+        }
+        .stat-box .num { font-size: 2em; font-weight: bold; }
+        .stat-box .label { font-size: 0.9em; opacity: 0.9; }
+        .pillars {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 16px; margin: 15px 0;
+        }
+        .pillar {
+            background: #f0f5ff; padding: 18px; border-radius: 10px;
+            text-align: center;
+        }
+        .pillar .icon { font-size: 2em; margin-bottom: 8px; }
+        .pillar h3 { color: #0066cc; font-size: 1em; margin-bottom: 6px; }
+        .pillar p { font-size: 0.9em; color: #666; }
+        .timeline { position: relative; padding-left: 18px; }
+        .timeline::before {
+            content: ''; position: absolute; left: 0; top: 6px;
+            bottom: 5px; width: 3px; background: #0066cc;
+        }
+        .timeline-item {
+            position: relative; margin-bottom: 14px; padding-left: 16px;
+        }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -21px; top: 8px;
+            width: 8px; height: 8px; background: #0066cc; border-radius: 50%;
+        }
+        .timeline-year { font-weight: bold; color: #0066cc; }
+        .highlight {
+            background: #fff8e6; border-left: 4px solid #f0ad4e;
+            padding: 14px; margin: 15px 0; border-radius: 0 8px 8px 0;
+        }
+        .highlight.blue {
+            background: #e6f3ff; border-left-color: #0066cc;
+        }
+        .three-box {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 14px; margin: 15px 0;
+        }
+        .three-box .box {
+            background: #f5f8ff; padding: 16px; border-radius: 10px; text-align: center;
+        }
+        .three-box .box h4 { color: #0066cc; margin-bottom: 6px; font-size: 0.95em; }
+        .three-box .box p { font-size: 0.82em; color: #555; margin: 0; }
+        .leadership-skills { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
+        .skill-tag {
+            background: #0066cc; color: white;
+            padding: 6px 14px; border-radius: 20px; font-size: 0.9em;
+        }
+        .roles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .roles-grid .role-box { background: #f8fafc; padding: 14px; border-radius: 8px; }
+        .roles-grid h4 { color: #0066cc; margin-bottom: 8px; }
+        .roles-grid ul { margin: 0; font-size: 0.92em; }
+        .footer { text-align: center; padding: 40px 20px; color: #666; font-size: 0.9em; }
+        .footer .logo { font-size: 2.5em; margin-bottom: 10px; }
+        .footer a { color: #0066cc; text-decoration: none; }
+        .contact { background: #0066cc; color: white; padding: 20px; border-radius: 12px; margin-top: 20px; }
+        .contact h3 { margin-bottom: 8px; }
+        .contact a { color: white; }
+        .school-types {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 20px; margin: 15px 0;
+        }
+        .school-col {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 16px;
+            border: 2px solid #e0e5ee;
+        }
+        .school-col h4 {
+            color: #0066cc;
+            text-align: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #0066cc;
+        }
+        .school-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .school-step .num {
+            background: #0066cc;
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .school-step .text {
+            font-size: 0.9em;
+            color: #333;
+        }
+        @media (max-width: 600px) {
+            .pillars, .three-box, .roles-grid, .school-types { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: 1fr; }
+            .three-box { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Special Olympics Unified Schools</h1>
+        <p>Special Olympics East Asia</p>
+    </div>
+    
+    <div class="container">
+        <!-- What is Unified Schools -->
+        <div class="section">
+            <h2>What is Unified Schools</h2>
+            <p>Special Olympics Unified Schools is an education-based project and youth-driven initiative. Through sports and education activities, we inspire young people to become advocates for positive change in their communities, helping people with intellectual disabilities gain respect and dignity. Unified Schools embodies acceptance and inclusion, promoting respect for differences and sharing friendship and joy. The program began its first year of activities in 2008.</p>
+        </div>
+        
+        <!-- Development in East Asia -->
+        <div class="section">
+            <h2>Unified Schools Development in East Asia</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-year">2014</span> East Asia was officially included in the US-China Strategic Dialogue People-to-People Exchange
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">July 10, 2015</span> US-China joint announcement launching Unified Schools in China
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">Since 2015</span> Gradually launched across Mainland China and the five other Programs: SO Chinese Taipei, SO Hong Kong, SO Macau, SO Korea and SO Mongolia
+                </div>
+            </div>
+        </div>
+        
+        <!-- Goals -->
+        <div class="section">
+            <h2>Goals for East Asia</h2>
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="num">1,500+ → 2,000+</div>
+                    <div class="label">Unified Schools</div>
+                </div>
+                <div class="stat-box">
+                    <div class="num">100%</div>
+                    <div class="label">Every Student Participates</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Three Pillars -->
+        <div class="section">
+            <h2>Three Pillars of Unified Champion Schools</h2>
+            <div class="pillars">
+                <div class="pillar">
+                    <div class="icon">🏃</div>
+                    <h3>Unified Sports</h3>
+                    <p>Training & Competition Together</p>
+                </div>
+                <div class="pillar">
+                    <div class="icon">👥</div>
+                    <h3>Youth Leadership</h3>
+                    <p>Cultivating Future Leaders</p>
+                </div>
+                <div class="pillar">
+                    <div class="icon">🏫</div>
+                    <h3>Whole School Engagement</h3>
+                    <p>Creating Inclusive Culture</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Unified Sports -->
+        <div class="section">
+            <h2>Unified Sports Activities</h2>
+            <div class="three-box">
+                <div class="box">
+                    <h4>Unified Training & Competition</h4>
+                    <p>Inter-school joint training and events</p>
+                </div>
+                <div class="box">
+                    <h4>Unified Schools Day</h4>
+                    <p>School-wide inclusion activities</p>
+                </div>
+                <div class="box">
+                    <h4>Unified Camp</h4>
+                    <p>Holiday programs</p>
+                </div>
+                <div class="box">
+                    <h4>MATP</h4>
+                    <p>Motor Activity Training Program</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Impact -->
+        <div class="section">
+            <h2>Impact</h2>
+            <ul>
+                <li>Create a more harmonious school environment and promote inclusive education</li>
+                <li>Build sports skills and develop social, emotional and learning skills</li>
+                <li>Change family perceptions and foster support networks</li>
+                <li>Extend benefits to the larger community as a catalyst for change</li>
+            </ul>
+        </div>
+        
+        <!-- Youth Leadership -->
+        <div class="section">
+            <h2>Unified Youth Leadership</h2>
+            <p>Special Olympics defines leadership as a relationship in which one person influences the behavior or actions of others to achieve goals.</p>
+            
+            <div class="highlight blue">
+                <h4 style="color:#0066cc;margin-bottom:10px;">Core Elements of Youth Leaders</h4>
+                <ul>
+                    <li><strong>Know</strong>: Understanding and recognition of yourself and your partner</li>
+                    <li><strong>Accept</strong>: Acceptance of differences and similarities</li>
+                    <li><strong>Utilize</strong>: Co-leadership, teamwork, communication, environment building</li>
+                </ul>
+            </div>
+            
+            <div class="highlight blue">
+                <strong>Six Leadership Skills</strong>
+                <div class="leadership-skills">
+                    <span class="skill-tag">Communication</span>
+                    <span class="skill-tag">Decision Making</span>
+                    <span class="skill-tag">Adaptability</span>
+                    <span class="skill-tag">Relationship Building</span>
+                    <span class="skill-tag">Goal Oriented</span>
+                    <span class="skill-tag">Continuous Improvement</span>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <strong>Acceptable Roles</strong>
+                <div class="roles-grid">
+                    <div class="role-box">
+                        <h4>In Schools</h4>
+                        <ul>
+                            <li>Volunteer / Host</li>
+                            <li>Journalist / News Writer</li>
+                            <li>Project Leader</li>
+                            <li>Coach / Referee / Scorer</li>
+                        </ul>
+                    </div>
+                    <div class="role-box">
+                        <h4>In Communities</h4>
+                        <ul>
+                            <li>Mentor / Advocate</li>
+                            <li>Fund Raiser</li>
+                            <li>Youth Input Committee Member</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Youth Leadership Opportunities -->
+        <div class="section">
+            <h2>Youth Leadership Opportunities</h2>
+            <div class="three-box">
+                <div class="box">
+                    <h4>Unified Club</h4>
+                    <p>School-based unified club</p>
+                </div>
+                <div class="box">
+                    <h4>Innovation Grant</h4>
+                    <p>Project funding support</p>
+                </div>
+                <div class="box">
+                    <h4>Youth Leadership Summit</h4>
+                    <p>Annual leadership event</p>
+                </div>
+                <div class="box">
+                    <h4>Digital Engagement</h4>
+                    <p>Online community interaction</p>
+                </div>
+            </div>
+            <p style="margin-top:15px;">Online Learning: <a href="https://learn.specialolympics.org/" target="_blank">learn.specialolympics.org</a></p>
+        </div>
+        
+        <!-- Whole School Engagement -->
+        <div class="section">
+            <h2>Whole School Engagement</h2>
+            <p>Whole School Engagement involves all students and faculty participating in unified activities to create an inclusive campus culture.</p>
+            <div class="highlight blue">
+                <h4 style="color:#0066cc;margin-bottom:8px;">Spread the Word</h4>
+                <p style="margin-bottom:8px;">A campaign started in 2009 to stop the use of offensive language.</p>
+                <ul>
+                    <li>Participants can pledge their support online</li>
+                    <li>Sign names offline to show commitment</li>
+                    <li>Go beyond words to respect and inclusion</li>
+                </ul>
+                <p style="margin-top:10px;margin-bottom:0;">More resources: <a href="https://www.spreadtheword.global/resources" target="_blank">spreadtheword.global/resources</a></p>
+            </div>
+        </div>
+        
+        <!-- How to Become Unified School -->
+        <div class="section">
+            <h2>How to Become a Unified School</h2>
+            <div class="three-box">
+                <div class="box">
+                    <h4>1. Get to Know</h4>
+                    <p>Initial contact and mutual understanding</p>
+                </div>
+                <div class="box">
+                    <h4>2. Reach Consensus</h4>
+                    <p>Special Ed + General Ed partnership</p>
+                </div>
+                <div class="box">
+                    <h4>3. Sign Commitment</h4>
+                    <p>Official registration as Unified School</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- How to Implement -->
+        <div class="section">
+            <h2>How to Implement Unified Activities</h2>
+            <p>Special Education Schools and General Education Schools work together to promote unified activities:</p>
+            
+            <div class="school-types">
+                <div class="school-col" style="border-color:#0066cc;">
+                    <h4>Implementation Pathway</h4>
+                    <div class="school-step">
+                        <div class="num">1</div>
+                        <div class="text">Sign Letter of Commitment</div>
+                    </div>
+                    <div class="school-step">
+                        <div class="num">2</div>
+                        <div class="text">Appoint a Coordinator for the Project</div>
+                    </div>
+                    <div class="school-step">
+                        <div class="num">3</div>
+                        <div class="text">Online & In-person Training</div>
+                    </div>
+                    <div class="school-step">
+                        <div class="num">4</div>
+                        <div class="text">Jointly Plan Unified Activities</div>
+                    </div>
+                    <div class="school-step">
+                        <div class="num">5</div>
+                        <div class="text">Organize & Host Unified Sports or Competitions</div>
+                    </div>
+                    <div class="school-step">
+                        <div class="num">6</div>
+                        <div class="text">Regularize Activities</div>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="margin-top:15px;">Further develop the following three directions, with the common goal of becoming a <strong>Unified Champion School</strong>:</p>
+            
+            <div class="pillars">
+                <div class="pillar">
+                    <div class="icon">👥</div>
+                    <h3>Youth Leadership</h3>
+                    <p>Cultivating Unified Leaders</p>
+                </div>
+                <div class="pillar">
+                    <div class="icon">🏃</div>
+                    <h3>Unified Sports</h3>
+                    <p>Regular Training & Competition</p>
+                </div>
+                <div class="pillar">
+                    <div class="icon">🏫</div>
+                    <h3>Whole School Engagement</h3>
+                    <p>Inclusive Campus Culture</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact -->
+        <div class="contact">
+            <h3>Contact Us</h3>
+            <p><strong>Farrah Chang</strong></p>
+            <p>Email: <a href="mailto:cfurong@specialolympics.org">cfurong@specialolympics.org</a></p>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="logo">🏅</div>
+        <p>Special Olympics East Asia</p>
+        <p>Special Olympics © 2026</p>
+    </div>
+</body>
+</html>
